@@ -59,3 +59,9 @@ html,body{
 #bye{
     background-image:url("../assets/image/Goodbye1.png");
 }
+
+
+
+.show{
+    transform:translateX(0);
+}
