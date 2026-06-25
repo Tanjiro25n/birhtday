@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+}
+
+/* COMMON PAGE */
+.page{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    background-size:cover;
+    background-position:center;
+
+    transition:transform 1s ease;
+}
+
+/* START OFF SCREEN */
+.right{
+    transform:translateX(100%);
+}
+
+/* MOVE LEFT */
+.left{
+    transform:translateX(-100%);
+}
+
+/* PHOTO PAGE */
+#photos{
+    background-image:url("assets/image/didi5.png");
+}
+
+/* NOTE PAGE */
+#birthday{
+    background-image:url("assets/image/note.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+/* 
+BYE PAGE */
+#bye{
+    background-image:url("assets/image/goodbye1.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PHOTO PAGE -->
+<div id="photos" class="page"></div>
+
+<!-- NOTE PAGE -->
+<div id="birthday" class="page right"></div>
+
+<!-- BYE PAGE -->
+<div id="bye" class="page right">
+</div>
+
+<script>
+
+const photos = document.getElementById("photos");
+const birthday = document.getElementById("birthday");
+const bye = document.getElementById("bye");
+
+/* 7 sec → Photos → Note */
+setTimeout(() => {
+    photos.classList.add("left");
+    birthday.classList.remove("right");
+}, 7000);
+
+/* 14 sec → Note → Bye */
+setTimeout(() => {
+    birthday.classList.add("left");
+    bye.classList.remove("right");
+}, 14000);
+
+</script>
+
+<script>
+
+// Mobile swipe band
+document.addEventListener("touchmove", function(e){
+    e.preventDefault();
+}, { passive:false });
+
+// Mouse wheel band
+window.addEventListener("wheel", function(e){
+    e.preventDefault();
+}, { passive:false });
+
+// Arrow keys/Page Up/Page Down band
+window.addEventListener("keydown", function(e){
+    if(
+        e.key === "ArrowUp" ||
+        e.key === "ArrowDown" ||
+        e.key === "PageUp" ||
+        e.key === "PageDown" ||
+        e.key === " "
+    ){
+        e.preventDefault();
+    }
+});
+
+</script>
+
+</body>
+</html>

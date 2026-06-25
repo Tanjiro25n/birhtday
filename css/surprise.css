@@ -1,0 +1,61 @@
+html,body{
+    width:100%;
+    height:100%;
+    margin:0;
+    overflow:hidden;
+    touch-action:none;
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+}
+
+.page{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    transition:transform 1s ease;
+}
+
+
+/* Start outside screen */
+.right{
+    transform:translateX(100%);
+}
+
+/* Slide out left */
+.left{
+    transform:translateX(-100%);
+}
+
+/* Photo Page */
+#photos{
+    background-image:url("../assets/image/didi5.png");
+}
+
+/* Note Page */
+#birthday{
+    background-image:url("../assets/image/note.png");
+}
+
+/* Bye Page */
+#bye{
+    background-image:url("../assets/image/Goodbye1.png");
+}
